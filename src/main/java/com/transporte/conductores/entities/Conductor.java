@@ -36,7 +36,7 @@ public class Conductor {
     private Integer estatus;
     private Timestamp creado;
     private Timestamp modificado;
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehiculos_id")
     private Vehiculo vehiculo;
 }

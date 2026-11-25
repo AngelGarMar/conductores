@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "vehiculos")
@@ -26,8 +27,8 @@ public class Vehiculo {
     private Timestamp creado;
     private Timestamp modificado;
     private Integer estatus;
-    @OneToOne(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Conductor conductor;
+    @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Conductor> conductores;
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "vehiculo")
     private Dato dato;
 }
